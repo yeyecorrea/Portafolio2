@@ -1,0 +1,52 @@
+<div class="col-lg-4">
+    <div class="sidebar-widget mt-5 mt-lg-0">
+        <div class="widget mb-5 follow">
+            <h4 class="mb-4 widget-title">Follow us</h4>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="widget mb-5">
+            <h4 class="mb-4 widget-title">Popular Posts</h4>
+            <ul class="list-unstyled">
+                {% for item in post %}
+                <li class="d-flex mb-4">
+                    <img src="{{item.image_blog.url}}" alt="" width="120" class="img-fluid mr-3">
+                    <div class="post-body">
+                        <span class="text-capitalize">By Admin</span>
+                        <a href="#">
+                            <h5>{{item.title}}</h5>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="widget category mb-5">
+            <h4 class="mb-4 widget-title">Categories</h4>
+            <ul class="list-unstyled">
+                {% for item in categorycount %}
+                <li class="d-flex justify-content-between align-items-center">
+                    <a href="#">{{item.name}}</a>
+                    <span class="cat-count">{{item.num_post}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="widget mb-5 tags">
+            <h4 class="mb-4 widget-title">Tags</h4>
+            <ul class="list-inline">
+                {% for item in tags %}
+                <li class="list-inline-item"><a href="#">{{item.name}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+{% block content %}
+<section class="portfolio py-4 page-title">
+    <div class="container">
+        <h1 class="text-capitalize mb-5 text-lg text-center">PROYECTOS</h1>
+        <div class="row mb-5 justify-content-center">
+            <div class="col-7">
+                <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                    <label class="btn active ">
+                        <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Projects
+                    </label>
+                    {% for item in category %}
+                    <label class="btn">
+                        <input type="radio" name="shuffle-filter" value="{{item.name}}" />{{item.name}}
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row shuffle-wrapper portfolio-gallery py-5">
+            {% for item in workhome %}
+            {% for category in item.category.all %}
+            <div class="col-lg-4 col-6 mb-5 shuffle-item" data-groups="[&quot;{{category.name}}&quot;]">
+                <div class="position-relative inner-box">
+                    <div class="image position-relative ">
+                        <img src="{{item.image_project.url}}" alt="portfolio-image" class="img-fluid w-100 d-block">
+                        <div class="overlay-box">
+                            <div class="overlay-inner">
+                                <a class="overlay-content" href="{% url 'WorkApp:detail' item.id %}">
+                                    <h5 class="mb-0">{{item.name}}</h5>
+                                    <p>{{category.name}}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-2">
+                <a href="{% url 'WorkApp:work' %}" class="btn btn-blue">Ver mas</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

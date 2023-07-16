@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Detalle proyecto{% endblock title %}
+
+{% block content %}
+{% include "includes/header.html" %}
+<section class="page-title section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h1 class="text-capitalize mb-0 text-lg">Proyecto {{project.name}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section portfolio-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{{project.image_project.url}}" alt="" class="img-fluid w-100">
+            </div>
+
+            <div class="col-lg-6">
+                <div class="project-info">
+                    <h3 class="mb-4">{{project.name}}</h3>
+                    <p>{{project.description}}</p>
+
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <div class="info">
+                                <h5 class="mb-0">Client</h5>
+                                <p>{{project.customer}}</p>
+                            </div>
+
+                            <div class="info">
+                                <h5 class="mb-0">Date</h5>
+                                <p>{{project.created}}</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="{{project.url}}" class="btn btn-main btn-small">Ver proyecto</a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="info">
+                                <h5 class="mb-0">Category</h5>
+                                {% for item in project.category.all %}
+                                <p>{{item.name}}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="info">
+                                <h5>Share</h5>
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                <a href="#"><i class="ti-twitter"></i></a>
+                                <a href="#"><i class="ti-pinterest"></i></a>
+                                <a href="#"><i class="ti-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "includes/footer.html" %}
+{% endblock content %}

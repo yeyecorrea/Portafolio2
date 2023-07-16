@@ -1,0 +1,27 @@
+<section class="section service-home border-top page-title">
+	<div class="container">
+		{% for item in servicehome  %}
+        {% if item.is_active %}
+		<h1 class="text-capitalize mb-0 text-lg text-center ">SERVICIOS</h1>
+        <div class="row">
+			<div class="col-lg-6 py-5">
+				<p class="mb-5">
+					Mis servicios son los siguientes
+				</p>
+			</div>
+		</div>
+        <div class="row">
+            {% for services in item.services_list.all %}
+            <div class="col-lg-4">
+				<div class="service-item mb-5" data-aos="fade-left" >
+					<i class="{{services.icon}}"></i>
+					<h4 class="my-3">{{services.name}}</h4>
+					<p>{{services.description}}</p>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+        {% endif %}
+        {% endfor %}
+	</div>
+</section>
