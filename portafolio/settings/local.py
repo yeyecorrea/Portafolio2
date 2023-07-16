@@ -3,7 +3,7 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://portafolio2-production.up.railway.app/']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
