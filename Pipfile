@@ -9,6 +9,7 @@ pillow = "*"
 psycopg2 = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 

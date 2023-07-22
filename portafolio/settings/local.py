@@ -4,15 +4,16 @@ from .base import *
 DEBUG = True
 
 ALLOWED_HOSTS = ['portafolio2-production.up.railway.app']
+#ALLOWED_HOSTS = []
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 #DATABASES = {
-    #'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3',
-    #}
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
 #}
 DATABASES = {
     'default': {
@@ -29,7 +30,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATICFILES_DIRS = [
+# os.path.join(BASE_DIR, 'static'),
+#]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-CSRF_TRUSTED_ORIGINS = ['https://portafolio2-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://portafolio2-production.up.railway.app', 'http://127.0.0.1:8000/']
