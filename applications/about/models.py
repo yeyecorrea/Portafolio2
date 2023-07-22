@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 class Knowledge(models.Model):
     name = models.CharField(max_length = 50, verbose_name="Nombre tus conocimientos")
@@ -20,7 +20,7 @@ class Experience(models.Model):
     name = models.CharField(max_length = 150)
     start_date = models.DateField(auto_now=False, auto_now_add=False, verbose_name="Fecha de inicio de la experiencia")
     end_date = models.DateField(auto_now=False, auto_now_add=False, verbose_name="Fecha final de la experiencia")
-    description = models.TextField(verbose_name="Descripcion")
+    description = RichTextField(verbose_name="Descripcion")
     created = models.DateTimeField(auto_now_add=True, verbose_name= "Fecha de creacion")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de actualizacion") 
     
@@ -53,7 +53,7 @@ class About(models.Model):
     name = models.CharField(max_length = 25, verbose_name="Nombre")
     image_about = models.ImageField(upload_to="static/images/about", height_field=None, width_field=None, max_length=100, verbose_name="Imagen")
     subtitle = models.CharField(max_length = 150, verbose_name="Subtitle")
-    description = models.TextField(verbose_name="Descripcion")
+    description = RichTextField(verbose_name="Descripcion")
     signature = models.ImageField(upload_to="static/images/about", height_field=None, width_field=None, max_length=100, verbose_name="Firma")
     knowledge = models.ManyToManyField(Knowledge, verbose_name="Conocimientos en?")
     experience = models.ManyToManyField(Experience, verbose_name="Experiencia")

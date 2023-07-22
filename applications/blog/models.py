@@ -1,5 +1,7 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from .managers import BlogManager, CategoryManager
+
 
 # Create your models here.
 class Category(models.Model):
@@ -51,7 +53,7 @@ class Comment(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length = 50, verbose_name="Titulo")
     image_blog = models.ImageField(upload_to="static/images/blog", height_field=None, width_field=None, max_length=100, verbose_name="Imagen")
-    content = models.TextField(verbose_name="Contenido")
+    content = RichTextField(verbose_name="Contenido")
     view = models.IntegerField(verbose_name="Visitas de la publicacion", default=0)
     category = models.ForeignKey(Category,on_delete=models.CASCADE, verbose_name="Categoria", related_name="Category_Post")
     tags = models.ManyToManyField(Tags, blank=True, verbose_name="Etiquetas")

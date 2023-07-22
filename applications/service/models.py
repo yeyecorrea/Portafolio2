@@ -1,9 +1,9 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 class Services(models.Model):
     name = models.CharField(max_length = 25, verbose_name="Nombre")
-    description = models.TextField(verbose_name="Descripcion")
+    description = RichTextField(verbose_name="Descripcion")
     icon = models.CharField(max_length = 150, verbose_name="Clase del icono")
     created = models.DateTimeField(auto_now_add=True, verbose_name= "Fecha de creacion")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de actualizacion")

@@ -1,34 +1,35 @@
 <!-- Banner start -->
 {% for item in about %}
 {% if item.is_active %}
-<section class="page-title">
+<section class="section banner-3">
     <div class="container">
-        <h1 class="text-capitalize mb-5 text-lg text-center ">ACERCA DE</h1>
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-7">
-                <div class="profile mb-5">
-                    <img src="{{item.image_about.url}}" alt="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <h3>{{item.name}}</h3>
-                <p class="lead mb-4">{{item.subtitle}}</p>
-                <p class="mb-4">{{item.description}}</p>
-                <img src="{{item.signature.url}}" alt="" class="img-fluid">
-            </div>
-            <div class="col-lg-5">
+                <h2 class="text-capitalize mb-5">Sobre Mi</h2>
+                <p class="mb-4">{{item.description|safe}}</p>
+                <h4>Conocimiento en</h4>
                 <ul class="list-unstyled mt-3 about-list">
                     {% for knowledge in item.knowledge.all %}
                     <li>- {{knowledge.name}}</li>
                     {% endfor %}
                 </ul>
             </div>
+            <div class="col-lg-5">
+                <div class="profile mb-5">
+                    <img src="{{item.image_about.url}}" alt="" class="img-fluid img-normalizada mb-5 ml-5">
+                    <div class="text-center">
+                        <h3>{{item.name}}</h3>
+                        <p class="lead">{{item.subtitle}}</p>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
     </div>
     <!-- Banner End -->
-    
+
     <!-- About start -->
-    <section class="section about border-top border-bottom">
+    <section class="section about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -41,7 +42,7 @@
                             <div class="about-info mb-5">
                                 <span>{{experience.start_date}} - {{experience.end_date}}</span>
                                 <h4 class="mb-2 mt-1">{{experience.name}}</h4>
-                                <p>{{experience.description}}</p>
+                                <p>{{experience.description|safe}}</p>
                             </div>
                         </div>
                         {% endfor %}
@@ -51,16 +52,16 @@
         </div>
     </section>
     <!-- About End -->
-    
+
     <!-- Skill Start -->
-    <section class="section-about skills">
+    <section class="skills">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <h3>Habilidades</h3>
                 </div>
-                <div class="col-lg-8">
-                    <div class="progress-bar-content">
+                <div class="col-lg-7">
+                    <div class="progress-bar-content py-5">
                         {% for skills in item.skills.all %}
                         <div class="progress-label d-flex align-items-center">
                             <div class="progress-title">{{skills.name}}</div>
@@ -76,15 +77,15 @@
         </div>
     </section>
     <!-- Skill end -->
-    
+
     <!-- Cta Start -->
-    <section class="section-sm pt-0 cta mb-2">
+    <section class="section-sm pt-0 cta">
         <div class="container">
             <div class="row align-items-center bg-dark p-5">
                 <div class="col-lg-8">
                     <h3 class="text-white mb-0">¿Quieres discutir sobre algún proyecto?</h3>
                 </div>
-                <div class="col-lg-4 text-lg-right mt-5 mt-lg-0">
+                <div class="col-lg-4 text-lg-right mt-lg-0">
                     <a href="{% url 'ContactApp:contact' %}" class="btn btn-white">Contactame</a>
                 </div>
             </div>

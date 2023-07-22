@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length = 50, verbose_name="Nombre")
@@ -18,7 +18,7 @@ class Category(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length = 25, verbose_name="Nombre")
     category = models.ManyToManyField(Category, verbose_name="Categoria")
-    description = models.TextField(verbose_name="Descripcion")
+    description = RichTextField(verbose_name="Descripcion")
     image_project = models.ImageField(upload_to="static/images/portafolio", height_field=None, width_field=None, max_length=100, verbose_name="Imagen")
     customer = models.CharField(max_length = 25, verbose_name="Nombre al que se realizo el proyecto", blank=True)
     url = models.TextField(verbose_name="Url de git")

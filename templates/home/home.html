@@ -5,24 +5,26 @@
 {% block content %}
 {% include "includes/header.html" %}
 <section class="section banner">
-	<div class="container mb-1">
+	<div class="container">
 		<div class="row">
             {% for item in home %}
             <div class="col-lg-10">
-                <h2 class="cd-headline clip is-full-width mb-4 ">
+                <h2 class="cd-headline clip is-full-width mb-5 ">
                     {{item.title}}<br>
-                    <span class="text-color">
-                        <b class="is-visible"> Soy Desarrollador de Software</b>
+                    <span class="cd-words-wrapper text-color">
+                        <b class="is-visible">Desarrollador de Software.</b>
+                        <b>Desarrollador de Web.</b>
+                        <b>Desarrollador de Movil.</b>
                     </span>    
                </h2>
-               <p>{{item.description}}</p>
+               <p>{{item.description|safe}}</p>
            </div>
             {% endfor %}
 		</div>
 	</div>
-</section>
-{% include "about/about.html"  with about=about %}
-{% include "work/homeWork.html" with workhome=workhome %}
+    {% include "about/about.html"  with about=about %}
+    {% include "work/homeWork.html" with workhome=workhome %}
 {% include "services/serviceHome.html" with servicehome=servicehome %}
+</section>
 {% include "includes/footer.html" %}
 {% endblock content %}

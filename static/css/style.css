@@ -11,7 +11,7 @@ body {
   letter-spacing: 0.166667px;
   line-height: 1.7em;
   color: #818385;
-  background: #e5e5e5;
+  background: #ffffff;
 }
 .btn-blue {
   background: #654ee8;
@@ -26,6 +26,13 @@ body {
 
 p {
   color: #818385;
+}
+
+.img-normalizada{
+	width: 350px;
+	height: 350px;
+	object-fit: cover;
+  border-radius: 100%;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
@@ -182,7 +189,7 @@ a:hover {
 
 .banner .cd-headline {
   font-size: 56px;
-  line-height: 70px;
+  line-height: 69px;
 }
 
 .banner-3 {
@@ -356,6 +363,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
 .portfolio .btn-group:not(:first-child) > .btn, .portfolio .btn-group > .btn:not(:first-child) {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+  background: #ffffff;
 }
 .portfolio .btn.active {
   color: #654ee8;
